@@ -5,7 +5,7 @@ Created: March 10, 2025 | Modified: March 10, 2025
 Rick Henderson, M.Ed, Security+ (expired), BSc. Computing/Computer Science
 
 * [Visit my profile on LinkedIn](https://www.linkedin.com/in/rickhendersonblackink/)
-* [Hidden Security on Substack](https://substack.com/@rickhendersonco/posts) - notes and articles on cybersecurity
+* [Hidden Security on Substack](https://substack.com/@rickhendersonco/posts) - My notes and articles on cybersecurity.
 
 *Status: Currently unemployed and seeking opportunites*
 
