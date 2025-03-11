@@ -17,9 +17,9 @@ Hi, I'm Rick.
 
 I'm a information security expert looking for fulfilling roles in cybersecurity related to or including product security, malware analysis, threat intelligence, SOC analyst, or security consultant.
 
-My most recent position was as a **Security Response Analyst II** in the **Product Security Incident Reponse Team (PSIRT)** at [BlackBerry](https://www.blackberry.com/us/en). 
+My most recent position was as a **Security Response Analyst II** in the **Product Security Incident Reponse Team (PSIRT)** at [BlackBerry](https://www.blackberry.com/us/en).
 
-My position there ended with the [sale of Cylance endpoint security assets to Arctic Wolf](https://arcticwolf.com/resources/press-releases/arctic-wolf-and-blackberry-announce-closing-of-acquisition-for-cylance/). 
+My position there ended with the [sale of Cylance endpoint security assets to Arctic Wolf](https://arcticwolf.com/resources/press-releases/arctic-wolf-and-blackberry-announce-closing-of-acquisition-for-cylance/).
 
 My primary duties included writing detections for CylanceOPTICS, responding to enquries about new and emerging threats and if they can be stopped by CylancePROTECT, as well as vulnerabilty management for all Cylance software products. My work included binary scanning for static analysis, and determining if BlackBerry products were susceptible to reported vulnerabilities. This included a large number of open source libraries as well as BlackBerry proprietary code.
 
@@ -33,7 +33,7 @@ On a daily basis I was writing Python scripts, reading malware write-ups, de-obf
 
 If you are interested in my cybersecurity work, you can also look at my repo of [real-world cybersecurity information](https://github.com/rickhenderson/real-world-cybersecurity).
 
-I also taught courses computer concepts and applications and VBA Programming in Excel at Wilfrid Laurier University for over 20 years.
+I also taught courses on computer concepts and applications and VBA Programming in Excel at Wilfrid Laurier University for over 20 years.
 
 ## Sections
 
