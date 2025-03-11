@@ -18,7 +18,8 @@ My most recent position was as a **Security Response Analyst II** in the **Produ
 My position there ended with the [sale of Cylance endpoint security assets to Arctic Wolf](https://arcticwolf.com/resources/press-releases/arctic-wolf-and-blackberry-announce-closing-of-acquisition-for-cylance/). Writing detections for CylanceOPTICS, responding to enquries about new and emerging threats and if they can be stopped by CylancePROTECT, as well as vulnerabilty management for all Cylance software products
 
 <p style="text-align: center;">
-    Secured 2M+ endpoints world-wide across governments, banks, and other institutions. Product Security & Threat Intel, Malware Analysis.
+    Secured 2M+ endpoints world-wide across governments, banks, and other institutions. 
+    Product Security & Threat Intel, Malware Analysis.
 </p>
 
 I have investigated and written detections for Jupyter, BlackBasta loaders, Spyboy Terminator, Emotet, GootLoader, WhisperGate, HermeticWiper and many other malware samples protecting more than 2 million endpoints world-wide.
