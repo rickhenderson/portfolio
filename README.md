@@ -15,4 +15,4 @@ On a daily basis I was writing Python scripts, reading malware write-ups, de-obf
 
 My work in Product Security included vulnerability management, binary scanning for static analysis, and determining if BlackBerry products were susceptible to reported vulnerabilities. This included a large number of open source libraries as well as BlackBerry proprietary code.
 
-If you are interested in my cybersecurity work, you can also look at my repo of [real-world cybersecurity information](../real-world-cybersecurity).
+If you are interested in my cybersecurity work, you can also look at my repo of [real-world cybersecurity information](https://github.com/rickhenderson/real-world-cybersecurity).
