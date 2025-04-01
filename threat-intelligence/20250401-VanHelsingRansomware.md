@@ -2,11 +2,15 @@
 
 ## Summary
 
-VanHelsingRAAS is a new ransomware-as-a-service that was released on March 7, 2025 and malware from the service was first discovered on March 16, 2025 by researchers at [Check Point Research](https://research.checkpoint.com/2025/vanhelsing-new-raas-in-town/).
+VanHelsingRAAS is a new ransomware-as-a-service that was released on March 7, 2025 and malware from the service was first discovered on March 16, 2025 by researchers at [Check Point Research](https://research.checkpoint.com/2025/vanhelsing-new-raas-in-town/) (CPR).
 
-The creators request the software not be used against CIS countries, indicating that the developers are Russian or pro-Russian, or possibly trying to make it appear to be pro-Russian in an attempt at disinformation.
+The malware creators request the software not be used against CIS countries, indicating that the developers are Russian or pro-Russian, or possibly trying to make it appear to be pro-Russian in an attempt at disinformation.
 
 The malware uses SMB to replicate itself over network shares, giving it worm-like capabilities.
+
+The executable requires command-line arguments in order to perform correctly. This means the threat may be limited to hands-on-keyboard attacks, as no activity related to C2 communication has been found.
+
+As of April 1, the reported Bitcoin address reported in the CPR article has had no transactions: [https://www.blockchain.com/explorer/addresses/btc/bc1q0cuvj9eglxk43v9mqmyjzzh6m8qsvsanedwrru](https://www.blockchain.com/explorer/addresses/btc/bc1q0cuvj9eglxk43v9mqmyjzzh6m8qsvsanedwrru)
 
 ## Rapid Detection
 
@@ -32,9 +36,9 @@ For more details on how the malware operates, please read the [Check Point artic
 
 These are file IOCs in SHA256, taken from the CPR article which listed them as MD5.
 
-* 8c272d63d9a37651b81283f0273609db8b9cd7af0b20e917529c7c9ca8687d59 (loader)
-* 86d812544f8e250f1b52a4372aaab87565928d364471d115d669a8cc7ec50e17
-* 99959c5141f62d4fbb60efdc05260b6e956651963d29c36845f435815062fd98
+* [8c272d63d9a37651b81283f0273609db8b9cd7af0b20e917529c7c9ca8687d59](https://www.virustotal.com/gui/file/8c272d63d9a37651b81283f0273609db8b9cd7af0b20e917529c7c9ca8687d59) (loader)
+* [86d812544f8e250f1b52a4372aaab87565928d364471d115d669a8cc7ec50e17](https://www.virustotal.com/gui/file/86d812544f8e250f1b52a4372aaab87565928d364471d115d669a8cc7ec50e17)
+* [99959c5141f62d4fbb60efdc05260b6e956651963d29c36845f435815062fd98](https://www.virustotal.com/gui/file/99959c5141f62d4fbb60efdc05260b6e956651963d29c36845f435815062fd98)
 
 ## ANY.RUN Analysis
 
@@ -43,6 +47,8 @@ As of April 1, 2025, there were already a number of tasks executing VanHelsing a
 In [this task](https://app.any.run/tasks/39efe72c-eeb9-4ebe-83cd-73a7d28cc567) I was able to get the malware to execute and begin encrypting files. Feel free to use the analysis for your own detections.
 
 <img src="images/20250401-anyrun-vanhelsing.png">
+
+If you want to analyze the file yourself and cannot download it from VirusTotal, you may be able to download it from ANY.RUN.
 
 Note: Some reference links were gathered via [Feedly](https://feedly.com/i/collection/content/user/cc20e8e3-2a63-40bf-9046-a038677236c9/category/f7345f24-0352-440c-9614-6d78f9ec9dce).
 
