@@ -39,9 +39,9 @@ The message said I had mined $80000 in crypto, so I thought I should check it to
 
   ```html
   <!DOCTYPE html>
-<html>
+  <html>
 
-<head>
+  <head>
     <meta charset="utf-8">
     <title>Bitcoin Mining</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,9 +52,9 @@ The message said I had mined $80000 in crypto, so I thought I should check it to
     <link rel="prefetch" as="script" crossorigin href="/_nuxt/url.0b90d914.js">
     <link rel="prefetch" as="script" crossorigin href="/_nuxt/error-component.e8645654.js">
     <link rel="stylesheet" href="/_nuxt/entry.816a5a0f.css">
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="__nuxt"></div>
     <script>
         window.__NUXT__ = (function(a) {
@@ -102,8 +102,7 @@ The message said I had mined $80000 in crypto, so I thought I should check it to
         }(""))
     </script>
     <script type="module" src="/_nuxt/entry.4e713294.js" crossorigin></script>
-</body>
-
-</html>
+  </body>
+  </html>
 ```
 
