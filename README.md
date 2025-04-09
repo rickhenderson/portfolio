@@ -38,6 +38,7 @@ I also taught courses on computer concepts and applications and VBA Programming 
 ## Sections
 
 * [YARA rules](yara-rules)
+* [Threat & Malware Intelligence and Analysis](threat-intelligence)
 
 ---
 
