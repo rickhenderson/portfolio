@@ -27,6 +27,8 @@ My primary duties included writing detections for CylanceOPTICS, responding to e
 
 I have investigated and written detections for Jupyter, BlackBasta loaders, Spyboy Terminator, Emotet, GootLoader, WhisperGate, HermeticWiper and many other malware samples protecting more than 2 million endpoints world-wide.
 
+I used C2 frameworks such as Mythic and Sliver for penetration testing and evaluating the effectiveness of endpoint detection and response software.
+
 I have experience with threat research, staying up-to-date on new techniques, analyzing malware and maldocs to create detections, as well as scripting, coding in Python, C#, C/C++, and developing and testing detections.
 
 On a daily basis I was writing Python scripts, reading malware write-ups, de-obfuscating malicious scripts in PowerShell, JavaScript, and Visual Basic. I would store scripts in Gitlab and search Github for malware and detections.
