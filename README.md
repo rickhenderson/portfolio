@@ -6,6 +6,7 @@ Rick Henderson, M.Ed, Security+ (expired), BSc. Computing/Computer Science
 
 * [Visit my profile on LinkedIn](https://www.linkedin.com/in/rickhendersonblackink/)
 * [Hidden Security on Substack](https://substack.com/@rickhendersonco/posts) - My notes and articles on cybersecurity.
+* [Unstructured stream-of-thought notes on my research and practice in cybersecurity](working-notes.md)
 
 *Status: Currently unemployed and seeking opportunites*
 
