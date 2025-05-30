@@ -21,7 +21,7 @@ History:
 
   
 Todo:
-    Finish it.
+    * Implement use of localhost and 0.0.0.0
 
 """
 
@@ -44,8 +44,8 @@ def send_UDP_packets():
     print("\n[+] Preparing to create UDP packets.")
     print("[!] Not yet implemented.\n")
 
-def send_ping():
-    print("\n[+] Preparing to send a ping.")
+def send_ping(source_ip, dest_ip):
+    print(f"\n[+] Preparing to send a ping from {source_ip} to {dest_ip}.\n")
     
 
 def main():
@@ -61,6 +61,9 @@ def main():
 
     (options, args) = oParser.parse_args()
     print((options, args))
+#    print(len(args))
+#    print(args[1])
+
     if options.man:
         PrintManual()
         return
@@ -68,8 +71,12 @@ def main():
         send_UDP_packets()
         return
     if options.ping:
-        if len(args) < 4:
-            print(f"Use: {args[0]} <src ip> <dest ip>")
+        # If there aren't 2 arguments, then they didn't include the src and dest ip addresses
+        if len(args) < 2:
+            print(f"Use: scanner.py -p <src ip> <dest ip>")
+        else:
+            send_ping(args[0], args[1])
+        return
 
 if __name__ == "__main__":
     main()
