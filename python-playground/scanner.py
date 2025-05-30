@@ -59,7 +59,7 @@ def send_ping(source_ip, dest_ip):
 
     # Create an ICMP packet of type ECHO
     icmp_packet = ImpactPacket.ICMP()
-    icmp_packet.set_icmp_type(icmp.ICMP_ECHO)
+    icmp_packet.set_icmp_type(icmp_packet.ICMP_ECHO)
 
     # Add a 156-character payload (not sure why 156?)
     icmp_packet.contains(ImpactPacket.Data(b"A"*156))
