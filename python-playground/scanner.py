@@ -27,16 +27,21 @@ Todo:
 
 from impacket import ImpactPacket, ImpactDecoder
 import optparse
-import re
+import select
 import socket
-import string
-
+import time
 
 def PrintManual():
     manual = '''
     Manual:
 
     This tool is a basic port scanner implemented using the Impacket library.
+
+    Flags:
+     -l, --length: Print length of a file. Not used.
+     -u, --UDP: Send a UDP packet. Not yet implemented (NYI).
+     -p, --ping: Send a ping. Requires a soure and destination address.
+     -m, --man: This manual.
     '''
     print(manual)
 
@@ -47,6 +52,54 @@ def send_UDP_packets():
 def send_ping(source_ip, dest_ip):
     print(f"\n[+] Preparing to send a ping from {source_ip} to {dest_ip}.\n")
     
+    # Create a new packet, based on example code from the Impacket repo
+    ip_packet = ImpactPacket.IP()
+    ip_packet.set_ip_src(source_ip)
+    ip_packet.set_ip_dst(dest_ip)
+
+    # Create an ICMP packet of type ECHO
+    icmp_packet = ImpactPacket.ICMP()
+    icmp_packet.set_icmp_type(icmp.ICMP_ECHO)
+
+    # Add a 156-character payload (not sure why 156?)
+    icmp_packet.contains(ImpactPacket.Data(b"A"*156))
+
+    # Put the ICMP packet inside the IP packet.
+    ip_packet.contains(icmp_packet)
+
+    # Open a raw socket, which might need admin priv on Windows.
+    # Requires raw (BSD) socket coding: https://docs.python.org/3/library/socket.html
+    s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
+    s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
+
+    packet_id = 0
+    for i in range(1, 5):
+        # Give the ICMP packet the next (sequential) ID in the sequence
+        icmp_packet.set_icmp_id(packet_id)
+
+        # Calculate the checksum
+        # C implementation: https://www.cs.dartmouth.edu/~sergey/cs60/lab3/icmp4-rawsend.c
+        icmp_packet.set_icmp_cksum(0)
+        icmp_packet.auto_checksum = 1
+
+        # Send it to the destination
+        s.sendto(ip_packet.get_packet(), (dest_ip, 0))
+
+        # Wait for replies
+        if s in select.select([s], [], [],)[0]:
+            reply = s.recvfrom(2000)[0]
+
+            # Use ImpacketDecoder to reconstruct the packet
+            response_ip_packet = ImpactDecoder.IPDecoder().decode(reply)
+            response_icmp_packet = response_ip_packet.child()
+
+            # If it matches, report it to the user
+            if response_ip_packet.get_ip_dst() == source_ip and response_ip_packet.get_ip_src() == dest_ip and icmp_packet.ICMP_ECHOREPLY == response_ip_packet.get_icmp_type():
+                print(f"Ping reply for sequence {response_icmp_packet.get_icmp_id()}")
+
+            # Add a delay before sending the next packet. Maybe this should be customizable.
+            time.sleep(1)
+
 
 def main():
     # Set up basic flags as per Didier's template, though likely not using many of them.
