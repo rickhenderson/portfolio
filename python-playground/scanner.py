@@ -22,6 +22,7 @@ History:
   
 Todo:
     * Implement use of localhost and 0.0.0.0
+    * Switch to argparse: https://docs.python.org/3/howto/argparse.html
 
 """
 
