@@ -1,0 +1,46 @@
+{
+    "Agent IP": "10.132.47.247",
+    "ComputerName": "BlackBox3",
+    "ConfigBuild": "1007.3.0009504.1",
+    "ConfigStateHash_decimal": "400320558",
+    "ContextProcessId_decimal": "34427351999",
+    "ContextThreadId_decimal": "35253422649",
+    "ContextTimeStamp_decimal": "1582837489.930",
+    "DnsRequestCount_decimal": "1",
+    "DomainName": "wpad.localdomain",
+    "DualRequest_decimal": "0",
+    "EffectiveTransmissionClass_decimal": "2",
+    "Entitlements_decimal": "15",
+    "InterfaceIndex_decimal": "0",
+    "LocalAddressIP4": [
+        "10.16.176.147",
+        "10.16.176.146",
+        "10.16.176.145"
+    ],
+    "MAC": [
+        "00-0C-29-02-A0-88",
+        "00-0C-29-02-A0-92",
+        "00-0C-29-02-A0-9C"
+    ],
+    "ProductType": "1",
+    "RequestType_decimal": "1",
+    "TreeId_decimal": "34361159830",
+    "aid": "ed7452b89c564f28ae1508da2829a072",
+    "aip": "10.132.47.247",
+    "cid": "cec7ad73cbcc4aa5abca7b79f9884d4f",
+    "company": "BlackBox - Test",
+    "eid": "382",
+    "esize": "114",
+    "event_err": "false",
+    "event_platform": "Win",
+    "event_simpleName": "DnsRequest",
+    "event_version": "3",
+    "eventtype": [
+        "eam",
+        "platform_windows"
+    ],
+    "id": "cae4bb12-59a4-11ea-8113-06c821e957bb",
+    "name": "DnsRequestV3",
+    "tid": "165376",
+    "timestamp": "2020-02-27T21:04:50.171Z"
+}
