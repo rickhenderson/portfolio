@@ -9,6 +9,7 @@ from copy import copy, deepcopy
 # In three years of writing Python scripts for product security, automation, and poc I never used string slicing.
 
 # Iterables are memory efficient. You don't have to load the entire object or stream into memory at once.
+# For later: https://www.geeksforgeeks.org/5-simple-ways-to-tokenize-text-in-python/
 
 def print_list():
     print("[+] A list is a collection of objects in parens seperated by commas.")
