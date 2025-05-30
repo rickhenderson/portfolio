@@ -19,6 +19,9 @@ def rot13(plaintext :str):
 def reverse(plaintext :str) -> str:
     return plaintext[::-1]
 
+def cleanup():
+    # Perform any other operations that should be done before the program ends cleanly.
+    print(f"{Style.RESET_ALL}")
 
 def main():
     print("[+] Enter '-1' to quit.")
@@ -26,16 +29,21 @@ def main():
     while plaintext != "-1":
         plaintext = input("Enter a plain text message: ")
         if plaintext != "-1":
-            print(f"{Fore.CYAN}[+] The ciphertext is {convert(plaintext)}{Style.RESET_ALL}")
-            print(f"{Fore.CYAN}[+] ROT13: {rot13(plaintext)}{Style.RESET_ALL}")
-            print(f"{Fore.CYAN}[+] Reverse: {reverse(plaintext)}{Style.RESET_ALL}")
-           
+            print(f"{Fore.CYAN}[+] The ciphertext is {convert(plaintext)}")
+            print(f"{Fore.CYAN}[+] ROT13: {rot13(plaintext)}")
+            print(f"{Fore.CYAN}[+] Reverse: {reverse(plaintext)}")
+
+        # Change the text back to a standard colour.
+        print(f"{Style.RESET_ALL}")
+
+    print(f"\n {Fore.YELLOW}Thank you for your time. :)\n")
+
     
 if __name__ == "__main__":
     print(f"{Fore.MAGENTA}++ Assumption: plaintext messages are composed of printable ASCII characters including the upper and lower case English alphabet, numbers from 0-1, and common punctuation.")
     print("[+] This is the set of printable ASCII characters from chr(32) to chr(126).")
-    print(f"{Style.RESET_ALL}")
+    
 
     main()
+    cleanup()
 
-    print("\n Thank you for your time. :)\n")
