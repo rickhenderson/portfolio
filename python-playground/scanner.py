@@ -53,9 +53,14 @@ def send_ping(source_ip, dest_ip):
     print(f"\n[+] Preparing to send a ping from {source_ip} to {dest_ip}.\n")
     
     # Create a new packet, based on example code from the Impacket repo
-    ip_packet = ImpactPacket.IP()
-    ip_packet.set_ip_src(source_ip)
-    ip_packet.set_ip_dst(dest_ip)
+    try:
+        ip_packet = ImpactPacket.IP()
+    except:
+        print("[!] Couldn't create IP packet with Impacket.")
+        exit(-1)
+    finally:
+        ip_packet.set_ip_src(source_ip)
+        ip_packet.set_ip_dst(dest_ip)
 
     # Create an ICMP packet of type ECHO
     icmp_packet = ImpactPacket.ICMP()
@@ -72,8 +77,8 @@ def send_ping(source_ip, dest_ip):
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
     s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
 
-    packet_id = 0
-    for i in range(1, 5):
+    packet_id = 1
+    for packet_id in range(1, 5):
         # Give the ICMP packet the next (sequential) ID in the sequence
         icmp_packet.set_icmp_id(packet_id)
 
@@ -94,7 +99,7 @@ def send_ping(source_ip, dest_ip):
             response_icmp_packet = response_ip_packet.child()
 
             # If it matches, report it to the user
-            if response_ip_packet.get_ip_dst() == source_ip and response_ip_packet.get_ip_src() == dest_ip and icmp_packet.ICMP_ECHOREPLY == response_ip_packet.get_icmp_type():
+            if response_ip_packet.get_ip_dst() == source_ip and response_ip_packet.get_ip_src() == dest_ip and icmp_packet.ICMP_ECHOREPLY == response_icmp_packet.get_icmp_type():
                 print(f"Ping reply for sequence {response_icmp_packet.get_icmp_id()}")
 
             # Add a delay before sending the next packet. Maybe this should be customizable.
@@ -102,6 +107,7 @@ def send_ping(source_ip, dest_ip):
 
 
 def main():
+    print("[#] You can use python scanner.py -p 192.168.2.21 172.217.1.14 as a test")
     # Set up basic flags as per Didier's template, though likely not using many of them.
     oParserFlag = optparse.OptionParser(usage="\nFlag arguments start with #f#:")
     oParserFlag.add_option("-l", "--length", action="store_true", default=False, help="Print length of files")
@@ -113,7 +119,7 @@ def main():
     oParser.add_option("-p", "--ping", action="store_true", default=False, help="Send an ICMP ping")
 
     (options, args) = oParser.parse_args()
-    print((options, args))
+#    print((options, args))
 #    print(len(args))
 #    print(args[1])
 
