@@ -22,3 +22,11 @@ Further on we find the code which does the decryption of the secret:
 
 <img src="img\using-jadx-for-disassembling-android-code-uncrackable-mobile-appsec.png">
 
+So now we know the secret is encrypted with AES, using ECB with Padding. 
+
+I wanted to read how the crypto library worked so I found it here: https://docs.oracle.com/javase/8/docs/api/javax/crypto/spec/SecretKeySpec.html so I could look up `SecretKeySpec`, `Cipher.getInstance`, and `Cipher.init`.
+
+The `opmode` value of 2 threw me for a moment. [The docs for crypto/Cipher](https://docs.oracle.com/javase/8/docs/api///javax/crypto/Cipher.html) state the possible values are ENCRYPT_MODE, DECRYPT_MODE, WRAP_MODE or UNWRAP_MODE but they don't include the numeric values. It's clearly an enumeration but did they start at 0 or 1? Since I'm dealing with decryption and I didn't know what WRAP_MODE is, I could assume it was decrypt mode, but to be sure I looked up the source code for [javax.crypto.Cipher.java](https://github.com/frohoff/jdk8u-jdk/blob/master/src/share/classes/javax/crypto/Cipher.java).
+
+There we find 2 = Decrypt mode. Reading source code is awesome!
+
