@@ -30,3 +30,6 @@ The `opmode` value of 2 threw me for a moment. [The docs for crypto/Cipher](http
 
 There we find 2 = Decrypt mode. Reading source code is awesome!
 
+And before going any further I did some googling and some Clauding ( ;) ) and renamed the functions and classes:
+
+<img src="img\is-this-android-rooted-hacking-android-mobile-application-security.png">
