@@ -38,6 +38,6 @@ After some fiddling and watching parts of John's video again:
 
 <img src="img\appsec-android-mobile-application-security-uncrackable-l1-owasp-hacking.jpg">
 
-<img src="img\ using-jadx-for-disassembling-android-code-uncrackable-mobile-appsec-success.png">
+<img src="img\using-jadx-for-disassembling-android-code-uncrackable-mobile-appsec-success.png">
 
 
