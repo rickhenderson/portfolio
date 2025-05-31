@@ -20,5 +20,5 @@ The code displayed was disassembled from Dex bytecode by Jadx, which is why the 
 
 Further on we find the code which does the decryption of the secret:
 
-<img src="using-jadx-for-disassembling-android-code-uncrackable-mobile-appsec">
+<img src="using-jadx-for-disassembling-android-code-uncrackable-mobile-appsec.png">
 
