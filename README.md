@@ -1,6 +1,6 @@
 # portfolio
 
-Created: March 10, 2025 | Modified: March 30, 2025
+Created: March 10, 2025 | Modified: March 31, 2025
 
 Rick Henderson, M.Ed, Security+ (expired), BSc. Computing/Computer Science, CISSP (in progress), CEH (sort of in progress)
 
@@ -8,6 +8,7 @@ Rick Henderson, M.Ed, Security+ (expired), BSc. Computing/Computer Science, CISS
 * [Hidden Security on Substack](https://substack.com/@rickhendersonco/posts) - My notes and articles on cybersecurity.
 * [Unstructured stream-of-thought notes on my research and practice in cybersecurity](working-notes.md)
 * [My Python Playground](python-playground/README.md) - A bunch of Python code I'm writing while trying to get a job as a Security Engineer.
+* [Application Security](appsec/README.md) - Sometimes application security, sometimes red teaming.
 
 *Status: Currently unemployed and seeking opportunites*
 
