@@ -6,3 +6,7 @@ This section started with a crackme found on the [OWASP Mobile Application Secur
 
 * [Uncrackable L1](owasp-mas-uncrackable-01.md)
 
+
+## Resources
+
+* [https://medium.com/@justmobilesec/android-static-analysis-fundamentals-smali-code-introduction-and-modifications-da266f7dff8f](Android Static Analysis Fundamentals: Smali Code Introduction and Modifications)
