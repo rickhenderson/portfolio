@@ -20,3 +20,4 @@ This section started with a crackme found on the [OWASP Mobile Application Secur
 * [Radare2](https://www.radare.org/n/radare2.html), [Official radare2 manual](https://book.rada.re/)
 * [Frida](https://frida.re/) - Scriptable, free, battle-tested instrumentation toolkit
 * [Ghidra](https://github.com/NationalSecurityAgency/ghidra) - an RE framework... by the NSA!
+* [Reverse Engineering info](https://github.com/enovella/reverse-engineering-reference-manual) - random Google find
