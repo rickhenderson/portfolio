@@ -14,3 +14,4 @@ So I cloned BYOB to re-familiarize myself with it in case it comes up in the int
 * Started looking at malware analysis, started up an account with IDA 9.0 online with a 1 year license (free), and was writing a short Python script to get information fom the Malshare API when I did some reading on PyJWT and started an account on Auth0.
 * Was looking at an analysis of [WhisperGate](https://www.crowdstrike.com/en-us/blog/technical-analysis-of-whispergate-malware/), which is malware that I investigated in 2022.
   
+**May 31, 2025:** BYOB won't install correctly because of out of date libraries and some deprecated ones I think. I did some work in Python yesterday and today I completed a crackme with Android Studio and the OWASP MAS.
