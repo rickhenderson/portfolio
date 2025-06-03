@@ -9,7 +9,7 @@ DEBUG = True
 
 class RDHStack:
     def __init__(self):
-        self.stack_store = []
+        self.stack_store = [0,1,2]
         
         if DEBUG:
             print("[DEBUG] Stack instantiated.")
@@ -19,5 +19,3 @@ class RDHStack:
 
     def pop(value):
         pass
-
-s1 = RDHStack()

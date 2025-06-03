@@ -5,24 +5,29 @@
 
 # Implement a simple Stack data structure using Python.
 
-DEBUG = True
+DEBUG = False
 
 class RDHStack:
     def __init__(self):
-        self.stack_store = [1,3,56,7]
-        print(self.stack_store)
+        self.items = [1,3,56,7]
         
         if DEBUG:
             print("[DEBUG] Stack instantiated.")
 
     def push(self,new_value):
-        pass
+        self.items.append(new_value)
+        return 1
 
-    def pop(self,value):
-        pass
+    def pop(self):
+        if not self.isEmpty():
+            return self.items.pop()
 
+    def isEmpty(self):
+        return len(self.items) == 0
+    
     def __str__(self):
-        return print(self.stack_store.items)
+        result = str(self.items)
+        return result
 
     def elemental_print(self):
         full_stack = "["
@@ -40,6 +45,3 @@ class RDHStack:
 
         full_stack += "]"
         return full_stack
-
-s1 = RDHStack()
-print(s1)
