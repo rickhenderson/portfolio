@@ -15,3 +15,7 @@ So I cloned BYOB to re-familiarize myself with it in case it comes up in the int
 * Was looking at an analysis of [WhisperGate](https://www.crowdstrike.com/en-us/blog/technical-analysis-of-whispergate-malware/), which is malware that I investigated in 2022.
   
 **May 31, 2025:** BYOB won't install correctly because of out of date libraries and some deprecated ones I think. I did some work in Python yesterday and today I completed a crackme with Android Studio and the OWASP MAS.
+
+**June 2, 2025:** Worked on Python code, adding more to my repo. Tried to get Snort3 to run under Remnux but there are some crazy dependencies that I couldn't get working. Snort2 was installed on Remnux already. I think.
+
+While reading about SSH, I came across a repo called Subterfuge but not only was it written badly in Python2, it wasn't even completed. Could be worth looking into when there is more time. Read about different TLS vulnerabilities like Heartbleed. 
