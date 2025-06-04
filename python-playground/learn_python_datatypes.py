@@ -122,6 +122,40 @@ def play_with_tuples(learner:Learner):
 
 def play_with_dictionaries(learner:Learner)->None:
     """Work with Dictionaries."""
+    print("\n ==========  Dictionaries ================")
+
+    print("Note: Dictonary items are ordered, changeable, and duplicates are not allowed.")
+    malware_sample = {
+        "malware_name": "BlackBasta",
+        "malware_type": "ransomware",
+        "threat_actor": "BlackBasta",
+        "sha256": ["bade58de277d0b06d2c74b1181142a8b3288c4e44e8bf649a8899ed3c7eca276", 
+                   "aa3f58e4d7ed6e3a4d3d619423e0a6c927d36e2ae7208dcaba5614e2507904c3",
+                   "f7fdbbcd974ddad321ae089b5ddb02ce92a1074fce403c6500db9e3ea0d2a8a5"
+                   ]
+    }
+
+    print("Created a dictonary for BlackBasta malware.")
+    print(malware_sample)
+    #print(f"Malware type: {malware_sample["malware_type"]}")
+    print(f"{malware_sample['malware_name']} is still active, adding that to dictionary.")
+    malware_sample["still_active"] = True
+    malware_sample["bad_entry"] = "sfjk;alck"
+    print(malware_sample)
+    malware_sample.pop("bad_entry")
+
+    print("\nAll the items:")
+    for item in malware_sample.items():
+        print(item)
+
+    print("\nAll the keys:")
+    for key in malware_sample.keys():
+        print(key)
+    
+    print("\nAll the values:")
+    for value in malware_sample.values():
+        print(value)
+
     return None
 
 def play_with_regular_expressions()->None:
@@ -143,12 +177,12 @@ def play_with_regular_expressions()->None:
     malicious_command = "EXEC xp_cmdshell 'netstat -an';"
     used_netstat = re.match(".*netstat.*", malicious_command)
     if used_netstat:
-        print(f"The `netstat` command is present in the malicious command IOC.: {malicious_command}")
+        print(f"The `netstat` command is present in the malicious command IOC: {malicious_command}")
     
     malicious_command = "cscript C:\\Backinfo\\ufn.vbs <TargetIP> \"C:\\Backinfo\\104.dll\" C:\\Delta\\104.dll\""
     strange_dll = re.match(".*[0-9][0-9][0-9].dll.*", malicious_command)
     if strange_dll:
-        print("The command used a dll name matching .*[0-9][0-9][0-9].dll.*")
+        print("The command used a dll name matching the pattern '.*[0-9][0-9][0-9].dll.*'")
 
 
 
