@@ -2,28 +2,39 @@
 # Be able to implment basic ciphers
 
 from colorama import just_fix_windows_console
-just_fix_windows_console()
 from colorama import Fore
 from colorama import Style
-import re
 
-def convert(msg):
+just_fix_windows_console()
+
+
+def convert(msg: str):
+    """Convert the string from something."""
+    msg = ""
     return "[!] Not yet implemented."
 
-def rot13(plaintext :str):
+
+def rot13(plaintext: str):
+    """Convert plaintext to ROT13 ciphertext."""
     ciphertext = ""
     for char in plaintext:
-        ciphertext += chr((ord(char)+13) % 94)
+        ciphertext += chr((ord(char) + 13) % 94)
     return ciphertext
 
-def reverse(plaintext :str) -> str:
+
+def reverse(plaintext: str) -> str:
+    """Reverse a string."""
     return plaintext[::-1]
 
+
 def cleanup():
+    """Reset the text style/colour."""
     # Perform any other operations that should be done before the program ends cleanly.
     print(f"{Style.RESET_ALL}")
 
+
 def main():
+    """Encrypt a message with a basic cipher."""
     print("[+] Enter '-1' to quit.")
     plaintext = ""
     while plaintext != "-1":
@@ -38,12 +49,12 @@ def main():
 
     print(f"\n {Fore.YELLOW}Thank you for your time. :)\n")
 
-    
+
 if __name__ == "__main__":
-    print(f"{Fore.MAGENTA}++ Assumption: plaintext messages are composed of printable ASCII characters including the upper and lower case English alphabet, numbers from 0-1, and common punctuation.")
+    print(
+        f"{Fore.MAGENTA}++ Assumption: plaintext messages are composed of printable ASCII characters including the upper and lower case English alphabet, numbers from 0-1, and common punctuation."
+    )
     print("[+] This is the set of printable ASCII characters from chr(32) to chr(126).")
-    
 
     main()
     cleanup()
-
