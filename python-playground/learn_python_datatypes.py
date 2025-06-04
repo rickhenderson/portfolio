@@ -97,8 +97,20 @@ def main():
     print("\nPiper: Hey great work! +10 points!")
     learner.update_score(learner.get_score() + 10)
 
-    # Check the current score.
-    print(get_score(learner))
+    print(f"Piper: There are now {len(my_list)} elements in the array.")
+    last_item = my_list.pop()
+    print(f"Piper: Popped {last_item} off the list.")
+    my_list.insert(3, 3)    # Insert a 3 at the 4th position
+    my_list.insert(5, 3)    # Insert a 3 at the 6th position
+    print(f"Piper: There are now {my_list.count(3)} elements in the array with value 3. (I made some changes.)")
+    print(my_list)
+    #my_list.sort()
+    print("Piper: Sorry, turns out I can't sort the list if the values are mixed types.")
+    my_list.reverse()
+    print(f"Piper: The list has been reversed! {my_list}: +15 points!")
+    learner.update_score(learner.score + 15) # Uses the memoic idiom of Python, as explained to me by Google Gemini.
+
+    print(f"Piper: Hey! Your score is now {get_score(learner)}. Great stuff!")  # Read score from file, just because.
 
         
 if __name__ == "__main__":
