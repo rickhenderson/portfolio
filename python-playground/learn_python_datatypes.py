@@ -21,6 +21,9 @@ class Learner():
     
     def update_score(self, new_score:str):
         """Update the learner score and write it to disk."""
+
+        # Do this or the score of the learner doesn't get updated.
+        self.score = new_score
         try:
             with open(f"{self.name}.info", "at", encoding="utf-8") as score_file:
                 score_file.write(f"{new_score}\n")
@@ -45,32 +48,9 @@ def get_score(learner:Learner):
     except FileNotFoundError as e:
         print("Piper: Eek! Couldn't read your score file! I'll have to quit.")
         return None
-
-def main():
-    """Learn Python Data Types"""
-
-    user_name:str
-    print("\nPiper: Hello! This program will help you learn about Python data types.\n")
-    print("Piper: What is your name? ", end="")
-    user_name = input()
-    print(f"Piper: Hi {user_name}, it's great to meet you! ")
-    print("I'm Piper and I'll be teaching you about the different data types in Python.")
-  
-    # Create the Learner object
-    learner = Learner(user_name)
-    print(f"\nPiper: Ok, {learner.name}. Before we get started, your current score is {learner.get_score()}.")
-    print(f"Piper: I'm going to store a file in the current directory called {learner.get_name()}.info.")
-    print("Piper: We'll use that to keep track of your score. Let's get started!")
     
-    # Try to save the learner's name and current score.
-    try:
-        write_score_file(learner.get_name(), learner.get_score())
-    except IOError as e:
-        print(f"\nPiper: Oops! Something went wrong writing the file. Let's start again. [{e}]")
-        exit(-1)
-
-    print("Great! That seemed to work!")
-
+def play_with_lists(learner:Learner):
+    """Use different List methods."""
     print("\n\n===== Starting with Lists ======\n")
     print("Piper: We'll start with Lists. Lists are like arrays found in C, but have more power.")
     print("Piper: Lists can hold a mixture of data types, including other lists!")
@@ -117,11 +97,41 @@ def main():
     my_list.clear()
     print(f"Piper: (And empty list looks like this: {my_list}).")
 
-    ##### Tuples ###############
+def play_with_tuples(learner:Learner):
+    """Learn with Tuples"""
     my_tuple = (4, 3, 6, 7)
     print(my_tuple)
 
+def main():
+    """Learn Python Data Types"""
 
+    user_name:str
+    print("\nPiper: Hello! This program will help you learn about Python data types.\n")
+    print("Piper: What is your name? ", end="")
+    user_name = input()
+    print(f"Piper: Hi {user_name}, it's great to meet you! ")
+    print("I'm Piper and I'll be teaching you about the different data types in Python.")
+  
+    # Create the Learner object
+    learner = Learner(user_name)
+    print(f"\nPiper: Ok, {learner.name}. Before we get started, your current score is {learner.get_score()}.")
+    print(f"Piper: I'm going to store a file in the current directory called {learner.get_name()}.info.")
+    print("Piper: We'll use that to keep track of your score. Let's get started!")
+    
+    # Try to save the learner's name and current score.
+    try:
+        write_score_file(learner.get_name(), learner.get_score())
+    except IOError as e:
+        print(f"\nPiper: Oops! Something went wrong writing the file. Let's start again. [{e}]")
+        exit(-1)
+
+    print("Great! That seemed to work!")
+
+    play_with_lists(learner)
+    play_with_tuples(learner)
+
+
+    print(f"\nPiper: Well you made it! Great work! Your final score is {learner.score}! Good luck in the interview, superstar! 🥰\n\n")
         
 if __name__ == "__main__":
     main()
