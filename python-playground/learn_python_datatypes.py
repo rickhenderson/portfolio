@@ -5,6 +5,8 @@
 # Created by: Rick Henderson
 # Created on: June 3, 2025
 
+import re
+
 class Learner():
     """A Learner object representing the user or learner."""
     def __init__(self, name:str):
@@ -99,8 +101,58 @@ def play_with_lists(learner:Learner):
 
 def play_with_tuples(learner:Learner):
     """Learn with Tuples"""
-    my_tuple = (4, 3, 6, 7)
+    my_tuple = (4, 7, 3, 6, 7)
     print(my_tuple)
+    count = my_tuple.count(7)
+    print(f"The value 7 appears {count} times in the tuple.")
+    print(f"The value 3 appears at {my_tuple.index(3)}.")
+    try:
+        index = my_tuple.index(2)
+    except ValueError:
+        print("Exception: The value 2 is not in the tuple. I checked.")
+    finally:
+        print("Piper: It's ok though, we can keep going.")
+    
+    ### Math with tuples? Never considered this with lists....
+    x = (1,5)
+    y = (1,6)
+    result = x+y
+    print(result)
+    print("Piper: Looks like adding tuples just makes a bigger tuple. Weird eh?")
+
+def play_with_dictionaries(learner:Learner)->None:
+    """Work with Dictionaries."""
+    return None
+
+def play_with_regular_expressions()->None:
+    """Work a bit with regular expressions, for they are tricky."""
+
+    msg = "The quick brown fox jumped over the lazy dog."
+    print("\n ==========  Regular Expressions ================")
+    print(f"Using: {msg}")
+
+    print("Using compiled pattern .*b.* and match():")
+    pattern = re.compile(".*b.*")
+    if pattern.match(msg):
+        print("Found the letter b somewhere in the string.")
+    
+    result = re.match("^The", msg)
+    if result:
+        print("The word 'The' is at the beginning of the sentence.")
+    
+    malicious_command = "EXEC xp_cmdshell 'netstat -an';"
+    used_netstat = re.match(".*netstat.*", malicious_command)
+    if used_netstat:
+        print(f"The `netstat` command is present in the malicious command IOC.: {malicious_command}")
+    
+    malicious_command = "cscript C:\\Backinfo\\ufn.vbs <TargetIP> \"C:\\Backinfo\\104.dll\" C:\\Delta\\104.dll\""
+    strange_dll = re.match(".*[0-9][0-9][0-9].dll.*", malicious_command)
+    if strange_dll:
+        print("The command used a dll name matching .*[0-9][0-9][0-9].dll.*")
+
+
+
+    return None
 
 def main():
     """Learn Python Data Types"""
@@ -127,10 +179,12 @@ def main():
 
     print("Great! That seemed to work!")
 
-    play_with_lists(learner)
+    # Each of the sections can now be commented out to make life easier.
+    #play_with_lists(learner)
     play_with_tuples(learner)
-
-
+    play_with_dictionaries(learner)
+    play_with_regular_expressions()
+    
     print(f"\nPiper: Well you made it! Great work! Your final score is {learner.score}! Good luck in the interview, superstar! 🥰\n\n")
         
 if __name__ == "__main__":
