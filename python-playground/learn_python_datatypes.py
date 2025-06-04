@@ -111,6 +111,16 @@ def main():
     learner.update_score(learner.score + 15) # Uses the memoic idiom of Python, as explained to me by Google Gemini.
 
     print(f"Piper: Hey! Your score is now {get_score(learner)}. Great stuff!")  # Read score from file, just because.
+    print("Piper: You're hardcore. Clearing the list to save space for... tuples! Yay tuples!")
+
+    # Clear the list.
+    my_list.clear()
+    print(f"Piper: (And empty list looks like this: {my_list}).")
+
+    ##### Tuples ###############
+    my_tuple = (4, 3, 6, 7)
+    print(my_tuple)
+
 
         
 if __name__ == "__main__":
