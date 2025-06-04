@@ -7,8 +7,8 @@
 
 class Learner():
     """A Learner object representing the user or learner."""
-    def __init__(self, learner_name:str):
-        self.learner_name = learner_name
+    def __init__(self, name:str):
+        self.name = name
         self.score = 0
 
     def get_score(self):
@@ -17,12 +17,12 @@ class Learner():
 
     def get_name(self):
         """Return the name of the user."""
-        return self.learner_name
+        return self.name
     
     def update_score(self, new_score:str):
         """Update the learner score and write it to disk."""
         try:
-            with open(f"{self.learner_name}.info", "at", encoding="utf-8") as score_file:
+            with open(f"{self.name}.info", "at", encoding="utf-8") as score_file:
                 score_file.write(f"{new_score}\n")
         except IOError as e:
             print("Piper: Oops, looks like there's been a problem updating your score on disk.")
@@ -38,13 +38,13 @@ def write_score_file(user_name:str, score: int):
 
 def get_score(learner:Learner):
     try:
-        with open(f"{learner.name}.info", "rt", encoding="utf-8") as score_file:
-            dummy = score_file.readline()           # Reads the name in line 1
-            current_score = score_file.readline()   # Reads the score in line 2
+        with open(f"{learner.name}.info", "r", encoding="utf-8") as score_file:
+            dummy = score_file.readlines()           # Reads the whole file because score is not second line.
+            if dummy:
+                return(dummy[-1].strip())            # returns the score from the last line, with no newline.
     except FileNotFoundError as e:
         print("Piper: Eek! Couldn't read your score file! I'll have to quit.")
-        exit(-1)
-    return current_score
+        return None
 
 def main():
     """Learn Python Data Types"""
@@ -58,7 +58,7 @@ def main():
   
     # Create the Learner object
     learner = Learner(user_name)
-    print(f"\nPiper: Ok, {learner.learner_name}. Before we get started, your current score is {learner.get_score()}.")
+    print(f"\nPiper: Ok, {learner.name}. Before we get started, your current score is {learner.get_score()}.")
     print(f"Piper: I'm going to store a file in the current directory called {learner.get_name()}.info.")
     print("Piper: We'll use that to keep track of your score. Let's get started!")
     
@@ -95,7 +95,7 @@ def main():
     print(f"Part of the list by slicing is: {my_list[0:3:1]}")
 
     print("\nPiper: Hey great work! +10 points!")
-    learner.update_score(learner.get_score + 10)
+    learner.update_score(learner.get_score() + 10)
 
     # Check the current score.
     print(get_score(learner))
