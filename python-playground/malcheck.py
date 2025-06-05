@@ -12,6 +12,7 @@ from colorama import Style
 
 import hashlib
 import os
+import requests
 import sys
 
 just_fix_windows_console()
@@ -95,7 +96,16 @@ def get_SHA256(file_name):
     return sha256
 
 def get_virustotal_info(file_hash:str):
-    print("[+] Requesting malware search from VirusTotal... [NYI]")
+    print("[+] Requesting malware search from VirusTotal...")
+    file_report_endpoint = f"https://www.virustotal.com/api/v3/files/{file_hash}"
+    headers = {"accept": "application/json",
+               "X-Apikey": f"{args.vtapi}"}
+    
+    try:
+        vt_file_report = requests.get(file_report_endpoint, headers=headers)
+    except TimeoutError as e:
+        print("[!] There was a problem getting a response from VirusTotal. Try again later or check your API key.")
+    return vt_file_report
 
 
 def main(args):
@@ -117,7 +127,8 @@ def main(args):
         perform_checks(args.file)
 
     if args.vtapi:
-        get_virustotal_info(get_SHA256(args.file))
+        vt_report = get_virustotal_info(get_SHA256(args.file))
+        print(vt_report.content)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="malcheck")
@@ -126,7 +137,7 @@ if __name__ == "__main__":
     parser.add_argument("-f", "--file", help="Name of the file to analyze.")
     parser.add_argument("-i", "--info", action="store_true", help="Display file info.")
     parser.add_argument("-d", "--dump", action="store_true", help="Dump the first 256 bytes.")
-    parser.add_argument("-vt", "--vtapi", action="store_true", help="A VirusTotal API key to perform a VT check.")
+    parser.add_argument("-vt", "--vtapi",help="A VirusTotal API key to get a VT report.")
     parser.add_argument("-hash", "--hash", action="store_true", help="Display the SHA256 hash.")
 
     args = parser.parse_args()
