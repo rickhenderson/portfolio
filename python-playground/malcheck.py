@@ -11,6 +11,7 @@ from colorama import Fore
 from colorama import Style
 
 import hashlib
+import json
 import os
 import requests
 import sys
@@ -127,8 +128,14 @@ def main(args):
         perform_checks(args.file)
 
     if args.vtapi:
+        # Returns a Response Object
         vt_report = get_virustotal_info(get_SHA256(args.file))
-        print(vt_report.content)
+        print(type(vt_report))
+
+        # Convert the returned bytes into a Json object
+        vt_report = json.loads(vt_report.decode('utf-8'))
+        print(f"Reputation: {vt_report['data']['attributes']['reputation']}")
+        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="malcheck")
