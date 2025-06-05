@@ -13,6 +13,7 @@ from colorama import Style
 import hashlib
 import json
 import os
+import re
 import requests
 import sys
 
@@ -51,12 +52,59 @@ def isPE(buffer):
     if buffer[0:2] == b"MZ":
         return True
 
+def isPK(buffer):
+    if buffer.startswith(b'PK'):
+        print("PK Zip file detected.")
+    else:
+        print("This is not a zip file."
+              )
+        
+def isRehashedRat(file_bytes):
+    s1 = "psisrndrx.ebd"
+    s2 = "\\BisonNewHNStubDll\\Release\\Goopdate.pdb"
+    s3 = "pbad exception"
+
+    pattern = re.compile(f".*{s1}.*")
+
+
+    print("Rehashed RAT not detected. (apt_rehashed_rat.yar)")
+
+def find_ip_addresses(file_bytes):
+    # IP address pattern from Claude.ai
+    strict_ipv4 = r'\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b'
+    
+    results = re.findall(strict_ipv4, str(file_bytes))
+    print(f"IP Addresses: {results}")
+
 def perform_checks(file_name):
     """Perform checks against the file."""
     file_size = os.path.getsize(file_name)
     print(f"\nFile size: {file_size:,} bytes")
     print(os.stat(file_name))
 
+    # Get the full file bytes for searches. There is a block technique for large files.
+    file_bytes = get_full_file_as_bytes(file_name)
+
+    print(file_bytes[0:15])
+    if not file_bytes.startswith(b'ZM'):
+        print("Found MZ magic text.")
+    else:
+        print("Not a valid PE file. Check to see if it contains a PE file.")
+
+    # A valid re check
+    pattern = re.compile("^MZ")
+    found = pattern.match(str(file_bytes))
+    if found:
+        print("MZ detected with regex.")
+
+    quarry = b'This programm cannot be run in DOS mode.'
+    pattern = re.compile(".*This programm cannot be run in DOS mode.*")
+    found = pattern.match(str(quarry))
+    if (found):
+        print("Found the DOS header id string.")
+
+    isRehashedRat(file_bytes)
+    find_ip_addresses(file_bytes)
 
 def perform_dump(file_to_dump:str)->str:
     """Dump the first 256 bytes of the file in hex."""
@@ -108,6 +156,9 @@ def get_virustotal_info(file_hash:str):
         print("[!] There was a problem getting a response from VirusTotal. Try again later or check your API key.")
     return vt_file_report
 
+def perform_string_searches(file_bytes):
+
+    return
 
 def main(args):
     """Create a binary analysis tool."""
