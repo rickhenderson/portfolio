@@ -10,20 +10,24 @@ from colorama import just_fix_windows_console
 from colorama import Fore
 from colorama import Style
 
+import hashlib
+import os
 import sys
 
 just_fix_windows_console()
 
+# Set a global debug flag for certain output required to help debug the program.
+DEBUG = True
 
 # Re-use code from previous project but modify it.
-def write_file(file_name: str, msg: str) -> int:
+def write_text_file(file_name: str, msg: str) -> int:
     """Write test to a file."""
     with open(f"{file_name}", "wt", encoding="utf-8") as out_file:
         out_file.write(f"{msg}\n")
     return 1
 
 
-def read_file(file_name: str) -> str:
+def read_text_file(file_name: str) -> str:
     """Read from the file."""
     try:
         with open(f"{file_name}", "r", encoding="utf-8") as in_file:
@@ -45,8 +49,11 @@ def isPE(buffer):
     if buffer[0:2] == b"MZ":
         return True
 
-def perform_checks(file_bytes):
-    print(f"\nPE file: {isPE(file_bytes[0:2])}")
+def perform_checks(file_name):
+    """Perform checks against the file."""
+    file_size = os.path.getsize(file_name)
+    print(f"\nFile size: {file_size:,} bytes")
+    print(os.stat(file_name))
 
 
 def perform_dump(file_to_dump:str)->str:
@@ -54,15 +61,19 @@ def perform_dump(file_to_dump:str)->str:
     try:
         with open(file_to_dump, "rb") as bytes:
             result = bytes.read(256)
-            print(result)
+            print(f"\nPE file: {isPE(result[0:2])}")
+
     except FileNotFoundError as e:
         print(e)
         sys.exit(-1)
 
     return result
 
-    
-    
+def get_full_file_as_bytes(file_to_get:str)->bytes:
+    with open(file_to_get, "+rb") as f:
+        # Read the entire file into a byte array.
+        file_bytes = f.read()
+    return file_bytes    
 
 def print_banner():
     """Print the banner."""
@@ -71,12 +82,20 @@ def print_banner():
 
     ▪  .▄▄ ·     ▪  ▄▄▄▄▄    • ▌ ▄ ·.  ▄▄▄· ▄▄▌  ▄▄▌ ▐ ▄▌ ▄▄▄· ▄▄▄  ▄▄▄ . ██████╗ 
     ██ ▐█ ▀.     ██ •██      ·██ ▐███▪▐█ ▀█ ██•  ██· █▌▐█▐█ ▀█ ▀▄ █·▀▄.▀· ╚════██╗
-    ▐█·▄▀▀▀█▄    ▐█· ▐█.▪    ▐█ ▌▐▌▐█·▄█▀▀█ ██▪  ██▪▐█▐▐▌▄█▀▀█ ▐▀▀▄ ▐▀▀▪▄   ▄███╔╝
+    ▐█·▄▀▀▀█▄    ▐█· ▐█.▪    ▐█ ▌▐▌▐█·▄█▀▀█ ██▪  ██▪▐█▐▐▌▄█▀▀█ ▐▀▀▄ ▐▀▀ ▄   ▄███╔╝
     ▐█▌▐█▄▪▐█    ▐█▌ ▐█▌·    ██ ██▌▐█▌▐█ ▪▐▌▐█▌▐▌▐█▌██▐█▌▐█ ▪▐▌▐█•█▌▐█▄▄▌   ▀▀══╝ 
     ▀▀▀ ▀▀▀▀     ▀▀▀ ▀▀▀     ▀▀  █▪▀▀▀ ▀  ▀ .▀▀▀  ▀▀▀▀ ▀▪ ▀  ▀ .▀  ▀ ▀▀▀    ██╗
                                                                             ╚═╝ 
     """
     print(f"{color}{banner}{Style.RESET_ALL}")
+
+def get_SHA256(file_name):
+    sample_file = get_full_file_as_bytes(file_name)
+    sha256 = hashlib.sha256(sample_file).hexdigest()
+    return sha256
+
+def get_virustotal_info(file_hash:str):
+    print("[+] Requesting malware search from VirusTotal... [NYI]")
 
 
 def main(args):
@@ -84,29 +103,35 @@ def main(args):
 
     print_banner()
 
+
+    # Perform the options requested by the user from the command line
     if args.dump:
-        file_as_bytes = perform_dump(args.dump)
+        file_as_bytes = perform_dump(args.file)
+        print(file_as_bytes)
 
-    perform_checks(file_as_bytes)
+    if args.hash:
+        sha256_hash = get_SHA256(args.file)
+        print(f"\nSHA256: {sha256_hash}")
 
+    if args.info:
+        perform_checks(args.file)
 
-
+    if args.vtapi:
+        get_virustotal_info(get_SHA256(args.file))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="malcheck")
-    parser.add_argument("-d", "--dump", help="Dump the first 256 bytes.")
-    # Use action="store_true" for flags
-    parser.add_argument(
-        "-ap",
-        "--arping",
-        action="store_true",
-        help="Perform Scapy arping (accepts CIDR)",
-    )
-    parser.add_argument(
-        "-s", "--synscan", action="store_true", help="Send TCP SYN on ports 1 to 1024."
-    )
+
+    # Set up the list of command line options
+    parser.add_argument("-f", "--file", help="Name of the file to analyze.")
+    parser.add_argument("-i", "--info", action="store_true", help="Display file info.")
+    parser.add_argument("-d", "--dump", action="store_true", help="Dump the first 256 bytes.")
+    parser.add_argument("-vt", "--vtapi", action="store_true", help="A VirusTotal API key to perform a VT check.")
+    parser.add_argument("-hash", "--hash", action="store_true", help="Display the SHA256 hash.")
+
     args = parser.parse_args()
-    print(args)
+    if DEBUG:
+        print(args)
 
     # Start the main program and pass in the arguments from the command line.
     main(args)
