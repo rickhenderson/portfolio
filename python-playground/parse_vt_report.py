@@ -4,6 +4,7 @@ report_bytes = b'{"data": {"id": "ce5d192d7ace9f9ba5e1ac3e9ccfe1db37d81f5b3fd831
 #print(str(report)) # Seems to work
 
 report_string = str(report_bytes)
+print(type(report_string))
 
 report2json = json.loads(report_bytes.decode('utf-8'))
 print()

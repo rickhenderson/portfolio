@@ -129,12 +129,35 @@ def main(args):
 
     if args.vtapi:
         # Returns a Response Object
+        black_basta_sample = "1fd90c1d55def54f85d8ebf5b2fdf31e11314af41833c13b73b87e3047879099"
         vt_report = get_virustotal_info(get_SHA256(args.file))
-        print(type(vt_report))
+        
+        # Step-by-step to make it easuer to figure out in the future
+        content = vt_report.content    # Returns a string string in bytes ie. b'{"data": {"id": "ce5d1...
+        print()
 
-        # Convert the returned bytes into a Json object
-        vt_report = json.loads(vt_report.decode('utf-8'))
-        print(f"Reputation: {vt_report['data']['attributes']['reputation']}")
+        # There must be a better way other than this and slicing.
+        #fixed = content_as_text.lstrip("b'").rstrip("'")
+        
+        # Convert the returned string into a Json object
+        json_report = json.loads(content.decode('utf-8'))
+        print(f"Reputation: {json_report['data']['attributes']['reputation']}")
+        print(f"Type Extention: {json_report['data']['attributes']['type_extension']}")
+        print(f"Stats: {json_report['data']['attributes']['last_analysis_stats']}")
+        print(f"Magic string: {json_report['data']['attributes']['magic']}")
+        print(f"Unique Sources: {json_report['data']['attributes']['unique_sources']}")
+
+        # There are many entries for language so a specific one may be required.
+        print(f"Resource Language: {json_report['data']['attributes']['pe_info']['resource_details'][0]['lang']}")
+        print(f"Likely Compiler: {json_report['data']['attributes']['pe_info']['compiler_product_versions'][0]}")
+
+        # TODO: Nice way to display these
+        print(f"Import List: {json_report['data']['attributes']['pe_info']['import_list']}")
+
+
+        
+        
+        
         
 
 if __name__ == "__main__":
