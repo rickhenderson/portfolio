@@ -6,8 +6,15 @@ Poke: A simple port poker. I mean... scanner.
 # Created on: June 4, 2025
 
 import argparse
+from colorama import just_fix_windows_console
+from colorama import Fore
+from colorama import Style
+
 import sys
-from scapy.all import IP, ls, Ether, sr1, UDP, DNS, arping
+from scapy.all import IP, TCP, ls, sr1, arping, sr, hexdump
+
+just_fix_windows_console()
+
 
 # Re-use code from previous project but modify it.
 def write_file(file_name: str, msg: str) -> int:
@@ -41,6 +48,15 @@ def perform_arping(targets):
     except ValueError as e:
         print(f"[!] Could not perform arping. Is the destination address correct? {e}")
 
+def perform_synscan(target):
+    """Perform a SYN scan as per Scapy docs."""
+    #src = get_if_addr(conf.iface)
+    result, unanswered = sr(IP(dst=target)/TCP(flags="S", dport=(1,1024)))
+    print(result)
+    print("\n[+] Returned packet[1]:")
+    print(result[1])
+    print("\n[+] Packet summary:")
+    print(result.summary())
 
 def main(args):
     """Create a port scanner"""
@@ -59,13 +75,13 @@ def main(args):
                                             ░                                                        
 """
 
-    print(banner)
+    print(f"{Fore.RED}{banner}{Style.RESET_ALL}")
 
     print(
         "\n[!] Note: Currently only supports scanning one host. Does not accept CIDR notation or domain names."
     )
 
-    target_host = args.arping
+    target_host = args.target
     if not target_host:
         print("[!] Can't scan for ports with out a host. Use port.py -t 192.168.1.5.")
         sys.exit
@@ -74,15 +90,20 @@ def main(args):
 
     # From https://scapy.readthedocs.io/en/latest/introduction.html#quick-demo
 
+    
     if args.arping:
         perform_arping(target_host)
+    if args.synscan:
+        perform_synscan(target_host)
+        
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(prog="poke")
     parser.add_argument("-t", "--target", help="The IP address of the target host.")
-    parser.add_argument("-ap", "--arping", help="Perform Scapy arping (accepts CIDR)")
+    # Use action="store_true" for flags
+    parser.add_argument("-ap", "--arping", action="store_true", help="Perform Scapy arping (accepts CIDR)")
+    parser.add_argument("-s", "--synscan", action="store_true",help="Send TCP SYN on ports 1 to 1024.")
     args = parser.parse_args()
-    print(args)
-
+    
     # Start the main program and pass in the target IP from the command line.
     main(args)
