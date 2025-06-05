@@ -1,5 +1,5 @@
 """
-Poke: A simple port poker. I mean... scanner.
+Malcheck - A simple binary analysis tool.
 """
 
 # Created by: Rick Henderson
@@ -40,10 +40,29 @@ def read_file(file_name: str) -> str:
         return -1
     return 1
 
+def isPE(buffer):
+    """Use the provided byte buffer to determine if the file is a PE file."""
+    if buffer[0:2] == b"MZ":
+        return True
 
-def perform_dump():
+def perform_checks(file_bytes):
+    print(f"\nPE file: {isPE(file_bytes[0:2])}")
+
+
+def perform_dump(file_to_dump:str)->str:
     """Dump the first 256 bytes of the file in hex."""
+    try:
+        with open(file_to_dump, "rb") as bytes:
+            result = bytes.read(256)
+            print(result)
+    except FileNotFoundError as e:
+        print(e)
+        sys.exit(-1)
 
+    return result
+
+    
+    
 
 def print_banner():
     """Print the banner."""
@@ -65,11 +84,12 @@ def main(args):
 
     print_banner()
 
-    print("\n[!] Note: Nothing, we're good.")
-
     if args.dump:
-        print("Dumping file.")
-        perform_dump()
+        file_as_bytes = perform_dump(args.dump)
+
+    perform_checks(file_as_bytes)
+
+
 
 
 if __name__ == "__main__":
@@ -87,5 +107,6 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     print(args)
+
     # Start the main program and pass in the arguments from the command line.
     main(args)
