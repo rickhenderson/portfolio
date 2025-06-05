@@ -65,7 +65,7 @@ def main(args):
         "\n[!] Note: Currently only supports scanning one host. Does not accept CIDR notation or domain names."
     )
 
-    target_host = args.target
+    target_host = args.arping
     if not target_host:
         print("[!] Can't scan for ports with out a host. Use port.py -t 192.168.1.5.")
         sys.exit
@@ -76,8 +76,6 @@ def main(args):
 
     if args.arping:
         perform_arping(target_host)
-
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
