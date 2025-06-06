@@ -111,7 +111,7 @@ def perform_checks(file_name):
 
     print(file_bytes[0:15])
     if not file_bytes.startswith(b"ZM"):
-        print("Found MZ magic text.")
+        print("Found MZ magic bytes.")
     else:
         print("Not a valid PE file. Check to see if it contains a PE file.")
 
@@ -127,10 +127,14 @@ def perform_checks(file_name):
     if found:
         print("Found the DOS header id string.")
 
-    # Perform only once here:
+    # Perform only str conversion only once here:
     file_as_string = str(file_bytes)
+
+    # Check sample against known malware by examining Yara rules.
     isRehashedRat(file_bytes)
     isScarCruft(file_as_string)  # Preferred
+    
+    # Extract valid IP addresses from sample
     find_ip_addresses(file_bytes)
 
 
