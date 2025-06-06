@@ -365,4 +365,6 @@ Morris was indicted, served 3 years probation and fined $10,200, then finished h
     data = map(int, values)
     print(list(data))
     ```
-  *
+  * usually have to convert maps to lists
+* lambda functions: anonymous functions - https://www.geeksforgeeks.org/python-lambda-anonymous-functions-filter-map-reduce/
+* len works for basically everything. Maybe not maps?
