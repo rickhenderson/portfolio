@@ -358,4 +358,11 @@ Morris was indicted, served 3 years probation and fined $10,200, then finished h
 
 * items() or enumerate
 * reversed, sorted
-
+* map()
+  * apply a function/transformation to every element in a set:
+  * ```Python
+    values = ['34.3', '27.5', '3.14']
+    data = map(int, values)
+    print(list(data))
+    ```
+  *
