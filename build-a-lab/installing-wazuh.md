@@ -33,3 +33,4 @@ Reading package lists... Building dependency tree... Reading state information..
 * Failed again but got to installing therevers, then failed at installing the Wazuh manager.
 * Strangely, none of these solve the problem or tell me what the problem could be: https://duckduckgo.com/?q=dpkg+returns+127&atb=v358-1&ia=web
 
+* The virtual hard disk should have 127 GB of available space. It currently is using 7 GB and it should auto expand.
