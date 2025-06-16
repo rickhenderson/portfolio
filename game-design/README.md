@@ -18,4 +18,6 @@ I have 2 other repos dedicated to Unreal Engine. My aim was not to design a game
 * I have also taken part in 2 challenges and my entry made it into one of the final cuts but didn't place.
 * I have 1 game I made in a hack-a-thon posted on a popular free game site but I'm currently too embarrased to post it here because the final version is broken. I may add video clips.
 
+## Other Links
 
+* [My links and tutorials](./links-and-tutorials.md) - Links to UE5 tutorials I have in other repos.
