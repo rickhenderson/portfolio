@@ -20,3 +20,5 @@ So I cloned BYOB to re-familiarize myself with it in case it comes up in the int
 
 While reading about SSH, I came across a repo called Subterfuge but not only was it written badly in Python2, it wasn't even completed. Could be worth looking into when there is more time. Read about different TLS vulnerabilities like Heartbleed. Worked on ADTs in Python and will do a quick look at recursion before looking at more security focussed things to prepare for the next technical interview.
 
+**June 23, 2025:** While studying Snort, Suricata, and Wireshark I came across some great tutorials. The ones on WireShark can be found [here](https://github.com/rickhenderson/real-world-cybersecurity/blob/main/detecting-threats/wireshark.md).
+* Two more days until my final interview at {a company}.
