@@ -2,6 +2,10 @@
 
 AI Red Teaming is the (poorly named) activity of performing red team or penetration testing activities against an artificial intelligence model or system, such as a large language model (LLM) or a full agentic platform.
 
+Some common attacks against AI systems include direct & indirect prompt injection, data disclosure, data and model poisoning, among others.
+
+Pen-testing or red teaming AI models and systems is in some ways more complex than traditional computer systems or networks. The [probablistic nature of AI](https://www.microsoft.com/en-us/research/wp-content/uploads/2017/03/Ghahramani.pdf) models means that for the same input, you won't always get the same output. This both attack and defense of AI systems more complicated - sometimes things will work, and sometimes they won't.
+
 ## My Background and Activities
 
 I started doing structured learning and research into AI Red Teaming in April 2026, but I had been using LLMs and generative AI for the past few years. I've utilized many of the frontier Large Language Models, and followed the development of generative AI since DALL-E and Stable Diffusion, and worked with local models via Python, LLM Studio, and similar tools. I have hands-on experience with prompt injection used against LLMs and genAI models to bypass safety guardrails.
