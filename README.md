@@ -2,15 +2,13 @@
 
 Created: March 10, 2025 | Modified: March 31, 2025
 
-Rick Henderson, M.Ed, Security+ (expired), BSc. Computing/Computer Science, CISSP (in progress), CEH (sort of in progress)
+Rick Henderson, M.Ed, BSc. Computing/Computer Science
 
 * [Visit my profile on LinkedIn](https://www.linkedin.com/in/rickhendersonblackink/)
-* [Hidden Security on Substack](https://substack.com/@rickhendersonco/posts) - My notes and articles on cybersecurity.
+* [Hidden Security on Substack](https://substack.com/@rickhendersonco/posts) - Blog: My notes and articles on cybersecurity.
 * [Unstructured stream-of-thought notes on my research and practice in cybersecurity](working-notes.md)
 * [My Python Playground](python-playground/README.md) - A bunch of Python code I'm writing while trying to get a job as a Security Engineer.
 * [Application Security](appsec/README.md) - Sometimes application security, sometimes red teaming.
-
-*Status: Currently unemployed and seeking opportunites*
 
 <hr />
 
@@ -19,6 +17,30 @@ Rick Henderson, M.Ed, Security+ (expired), BSc. Computing/Computer Science, CISS
 Hi, I'm Rick.
 
 I'm a information security expert looking for fulfilling roles in cybersecurity related to or including product security, malware analysis, threat intelligence, SOC analyst, or security consultant.
+
+### June 2026
+
+I've been diving into [Hermes Agent](https://github.com/nousresearch/hermes-agent) and connected it up to Telegram. When I asked it to reframe my experience at BlackBerry through a lens of cyber threat intelligence (CTI), this is what it came up with:
+
+**Threat Intelligence & Adversary Emulation (BlackBerry)** 
+- **Global Threat Exposure & Adversary Emulation:** Conducted offensive security operations against software protecting a global estate of 2M+ endpoints, simulating advanced malware and C2 frameworks (Sliver, Havoc, Metasploit) to validate detection efficacy against EDR/EPP agents. Translated tactical emulation results into actionable intelligence on adversary TTPs.  
+- **Malware Research & IOC Enrichment:** Led proactive research into emerging malware campaigns, aggregating and analyzing OSINT (media, threat reports, social media) to extract IOCs, PoCs, and adversary infrastructure. Produced and disseminated finished intelligence for internal stakeholders, focusing on malware trends and emerging vulnerabilities.  
+- **Vulnerability Intelligence & Product Security:** Analyzed vulnerability disclosures and applied CVSS scoring to contextualize risk across product lines. Collaborated with development and Threat Research teams to create detections, author product advisories, and provide technical guidance for mitigation—closing the loop between external threat data and internal product hardening.  
+- **Validation & Purple Teaming:** Evaluated penetration testing reports and third‑party findings to verify detection efficacy within the Cylance ecosystem. Communicated directly with MDR analysts and threat researchers to refine detection logic and improve response playbooks.
+
+### Current Position
+
+### August 2025 - Present
+
+Arctic Wolf, Waterloo On, Concierge Security Engineer
+* Delivered Arctic Wolf network and endpoint security solutions directly to customers, including security event investigation and log source validation.
+* Utilized security tooling (Kibana and internal platforms) to identify threats and ensure environmental integrity.
+* Educated customers in risk and vulnerability management, providing actionable remediation recommendations to mature their security posture.
+* Maintained regular client sessions in accordance with SLAs, ensuring all technical and strategic concerns were evaluated and addressed.
+* Conducted in-depth Security Posture Reviews and delivered targeted recommendations to reduce risk exposure within customer environments.
+* Built and sustained strong client relationships, developing and executing plans to drive security maturity and long-term program growth.
+
+### 2025
 
 My most recent position was as a **Security Response Analyst II** in the **Product Security Incident Reponse Team (PSIRT)** at [BlackBerry](https://www.blackberry.com/us/en).
 
