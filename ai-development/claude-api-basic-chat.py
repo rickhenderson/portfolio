@@ -22,7 +22,7 @@ def add_assistant_message(messages, text):
 # Pass the current list of messages to Claude for a response.
 def chat(messages):
     message = client.messages.create(
-        model=,
+        model=model,
         max_tokens=1000,
         messages=messages,
     )
