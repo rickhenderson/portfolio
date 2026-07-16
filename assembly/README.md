@@ -14,7 +14,7 @@ You are an educational professional. You have studied learning and curriculum de
 
 The response from Claude Sonnet 4 was clear, and used good instructional design principles by basing the lesson on familiar concepts.
 
-Here is a link to the completed less using NASM. I was using Linux (Remnux) and NASM but it is not mentioned in the writeup.
+Here is a link to the completed lesson using NASM. I was using Linux (Remnux) and NASM but it is not mentioned in the writeup.
 
 * [x86 Assembly Addition Program with NASM](https://claude.ai/public/artifacts/a70d066c-24ab-45a4-b936-8e6cfd136b95)
 
