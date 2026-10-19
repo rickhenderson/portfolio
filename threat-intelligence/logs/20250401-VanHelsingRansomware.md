@@ -46,7 +46,7 @@ As of April 1, 2025, there were already a number of tasks executing VanHelsing a
 
 In [this task](https://app.any.run/tasks/39efe72c-eeb9-4ebe-83cd-73a7d28cc567) I was able to get the malware to execute and begin encrypting files. Feel free to use the analysis for your own detections.
 
-<img src="images/20250401-anyrun-vanhelsing.png">
+<img src="../images/20250401-anyrun-vanhelsing.png">
 
 If you want to analyze the file yourself and cannot download it from VirusTotal, you may be able to download it from ANY.RUN.
 
