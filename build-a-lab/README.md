@@ -8,6 +8,8 @@ I'm building a self-hosted security operations pipeline built to detect, enrich,
 ## Step 1: Install Wazuh
 
 * Since I have 24 GB of RAM on my main computer, I decided to run most of the lab on it. Decided on Hyper-V and downloaded the Wazuh OVA. Decisions on architecture were based on discussion with AI.
+* Already had Sysmon 15.15 installed, and I configured it with Olaf Hartong's Sysmon-Modular: https://github.com/olafhartong/sysmon-modular. I'll probably move to the embedded/built-in Sysmon because my customers at work will be working with it shortly, and it just makes things easier. I will also likely move to the Nextron config to focus more on detections.
+* 
 
 ## Architecture (future)
 
