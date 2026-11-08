@@ -1,5 +1,4 @@
 # Spamware Analysis
-*This report is still being created... it is unfinished.*
 
 Here are the steps I followed to investigate an interesting malware spam email message I received on March 24, 2025.
 
@@ -105,4 +104,3 @@ The message said I had mined $80000 in crypto, so I thought I should check it to
   </body>
   </html>
 ```
-
