@@ -7,7 +7,7 @@ Rick Henderson, M.Ed, BSc. Computing/Computer Science
 * [Visit my profile on LinkedIn](https://www.linkedin.com/in/rickhendersonblackink/)
 * [Hidden Security on Substack](https://substack.com/@rickhendersonco/posts) - Blog: My notes and articles on cybersecurity.
 * [My Threat Intelligence write-ups](https://github.com/rickhenderson/portfolio/tree/main/threat-intelligence)
-* [Vulnerability Briefings]()
+* [Vulnerability Briefings](https://github.com/rickhenderson/portfolio/blob/main/threat-intelligence/vulnerability-briefs/README.md)
 * [Unstructured stream-of-thought notes on my research and practice in cybersecurity](working-notes.md)
 * [My Python Playground](python-playground/README.md) - A bunch of Python code I'm writing while trying to get a job as a Security Engineer.
 * [Application Security](appsec/README.md) - Sometimes application security, sometimes red teaming.
