@@ -1,3 +1,8 @@
+<img src="images/artex-prologue-spear-shield.jpg" />
+
+<p><i>This post originally appeared on LinkedIn on November 11, 2026.</i></p>
+
+
 ARTEX, the Autonomous Offensive Framework (#AOF) currently making waves in the cybersecurity landscape, was first created as cybersecurity #pentesting tool in July 2026. (High confidence)
 
 In August into September 2-3, it took part in and won the 1st #Baidu Agent+ Attack-Defense Capability Challenge hosted by the Baidu Security Response Centre. (High Confidence)
@@ -17,3 +22,5 @@ The primary source of references to Artex being used in Korean financial breache
 For protection steps, see the FBI Flash and the Palo-Alto coverage from November 11: https://lnkd.in/gtBN7AVQ
 
 Bonus: Sooo much info in a Chinese WeChat post: https://lnkd.in/g4KxNrWD
+
+<img src="artex-prologue-web-shot.jpg">
