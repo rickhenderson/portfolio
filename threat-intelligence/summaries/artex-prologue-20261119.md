@@ -23,4 +23,4 @@ For protection steps, see the FBI Flash and the Palo-Alto coverage from November
 
 Bonus: Sooo much info in a Chinese WeChat post: https://lnkd.in/g4KxNrWD
 
-<img src="artex-prologue-web-shot.jpg">
+<img src="images/artex-prologue-web-shot.jpg">
