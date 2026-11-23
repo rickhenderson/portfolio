@@ -1,7 +1,10 @@
 <img src="images/artex-prologue-spear-shield.jpg" />
 
-<p><i>This post originally appeared on LinkedIn on November 11, 2026.</i></p>
+<p><i>This post originally appeared on LinkedIn on November 11, 2026. Modified November 22, 2026</i></p>
 
+BLUF:
+
+Artex doesn't introduce new attacker techniques; it automates known ones. Behavioral detections on enumeration, BloodHound collection and lateral movement remain the durable control, while infrastructure indicators are noisy because many exposed instances could be the work of researchers.
 
 ARTEX, the Autonomous Offensive Framework (#AOF) currently making waves in the cybersecurity landscape, was first created as cybersecurity #pentesting tool in July 2026. (High confidence)
 
