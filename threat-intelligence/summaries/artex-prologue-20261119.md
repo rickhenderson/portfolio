@@ -1,6 +1,6 @@
 <img src="images/artex-prologue-spear-shield.jpg" />
 
-<p><i>This post originally appeared on LinkedIn on November 11, 2026. Modified November 22, 2026</i></p>
+<p><i>This post originally appeared on LinkedIn on November 19, 2026. Modified November 22, 2026</i></p>
 
 BLUF:
 
