@@ -3,7 +3,7 @@
 These tools were written sometimes for learning or a single purpose so please check before using.
 
 * [malcheck.py](malcheck.py) - A simple binary analysis tool. It uses a raw `requests` call to the VirusTotal API endpoint when you provide your own API key. It does other things too. 
-* [logan.py][logan.py] - The beginning of a log analyzer using Didier Stevens' public domain starter code. See https://DidierStevens.com.
+* [logan.py](logan.py) - The beginning of a log analyzer using Didier Stevens' public domain starter code. See https://DidierStevens.com.
 
 
 
