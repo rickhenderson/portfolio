@@ -22,14 +22,12 @@ just_fix_windows_console()
 # Set a global debug flag for certain output required to help debug the program.
 DEBUG = True
 
-
 # Re-use code from previous project but modify it.
 def write_text_file(file_name: str, msg: str) -> int:
     """Write test to a file."""
     with open(f"{file_name}", "wt", encoding="utf-8") as out_file:
         out_file.write(f"{msg}\n")
     return 1
-
 
 def read_text_file(file_name: str) -> str:
     """Read from the file."""
@@ -48,7 +46,6 @@ def read_text_file(file_name: str) -> str:
         return -1
     return 1
 
-
 def isPE(buffer):
     """Use the provided byte buffer to determine if the file is a PE file."""
     if buffer[0:2] == b"MZ":
@@ -61,11 +58,10 @@ def isPK(buffer):
     else:
         print("This is not a zip file.")
 
-
 def isRehashedRat(file_bytes):
-    s1 = ".*psisrndrx\.ebd.*"
-    s2 = ".*\\\\BisonNewHNStubDll\\\\Release\\\\Goopdate\.pdb.*"
-    s3 = ".*pbad exception.*"
+    s1 = r".*psisrndrx\.ebd.*"
+    s2 = r".*\\BisonNewHNStubDll\\Release\\Goopdate\.pdb.*"
+    s3 = r".*pbad exception.*"
 
     strings_to_find = [s1, s2, s3]
     for pattern in strings_to_find:
@@ -80,7 +76,6 @@ def isRehashedRat(file_bytes):
     else:
         print("[!] Rehashed RAT detected!")
 
-
 def isScarCruft(file_byte_string):
     """Is it ScarCruft - apt_scarcruft.yar"""
     x1 = r".*d:\\HighSchool\\version 13\\2ndBD\\T+M\\.*"
@@ -91,14 +86,12 @@ def isScarCruft(file_byte_string):
     else:
         print("ScarCruft not detected.")
 
-
 def find_ip_addresses(file_bytes):
     # IP address pattern from Claude.ai
     strict_ipv4 = r"\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b"
 
     results = re.findall(strict_ipv4, str(file_bytes))
     print(f"IP Addresses: {results}")
-
 
 def perform_checks(file_name):
     """Perform checks against the file."""
@@ -137,7 +130,6 @@ def perform_checks(file_name):
     # Extract valid IP addresses from sample
     find_ip_addresses(file_bytes)
 
-
 def perform_dump(file_to_dump: str) -> str:
     """Dump the first 256 bytes of the file in hex."""
     try:
@@ -151,13 +143,11 @@ def perform_dump(file_to_dump: str) -> str:
 
     return result
 
-
 def get_full_file_as_bytes(file_to_get: str) -> bytes:
     with open(file_to_get, "+rb") as f:
         # Read the entire file into a byte array.
         file_bytes = f.read()
     return file_bytes
-
 
 def print_banner():
     """Print the banner."""
@@ -173,12 +163,10 @@ def print_banner():
     """
     print(f"{color}{banner}{Style.RESET_ALL}")
 
-
 def get_SHA256(file_name):
     sample_file = get_full_file_as_bytes(file_name)
     sha256 = hashlib.sha256(sample_file).hexdigest()
     return sha256
-
 
 def get_virustotal_info(file_hash: str):
     print("[+] Requesting malware search from VirusTotal...")
@@ -193,11 +181,9 @@ def get_virustotal_info(file_hash: str):
         )
     return vt_file_report
 
-
 def perform_string_searches(file_bytes):
-
+    # TODO
     return
-
 
 def main(args):
     """Create a binary analysis tool."""
@@ -252,7 +238,6 @@ def main(args):
         print(
             f"Import List: {json_report['data']['attributes']['pe_info']['import_list']}"
         )
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="malcheck")
