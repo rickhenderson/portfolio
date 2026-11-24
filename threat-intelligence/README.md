@@ -7,5 +7,3 @@ Each analysis has two parts: a **summary** with the conclusions and indicators, 
 * [20250325 - Spamware Analysis](logs/20250325-spamware-analysis.md) - Analysis of unusual spam with malicious intent, likely credential harvesting. (summary pending)
 * [20250310 - GhostWriter](logs/20250310-ghost-writer.md) (UNC1151) - using Excel Macros for infection (summary pending)
   
-
-Summaries follow [`summaries/TEMPLATE.md`](summaries/TEMPLATE.md).
