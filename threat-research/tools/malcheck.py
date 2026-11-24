@@ -103,20 +103,19 @@ def perform_checks(file_name):
     file_bytes = get_full_file_as_bytes(file_name)
 
     print(file_bytes[0:15])
-    if not file_bytes.startswith(b"ZM"):
+    if file_bytes.startswith(b"MZ"):
         print("Found MZ magic bytes.")
     else:
         print("Not a valid PE file. Check to see if it contains a PE file.")
 
     # A valid re check
-    pattern = re.compile("^MZ")
-    found = pattern.match(str(file_bytes))
+    pattern = re.compile(rb"^MZ")
+    found = pattern.match(file_bytes)
     if found:
         print("MZ detected with regex.")
 
-    quarry = b"This programm cannot be run in DOS mode."
-    pattern = re.compile(".*This programm cannot be run in DOS mode.*")
-    found = pattern.match(str(quarry))
+    pattern = re.compile(rb"This program cannot be run in DOS mode")
+    found = pattern.search(file_bytes)
     if found:
         print("Found the DOS header id string.")
 
@@ -144,7 +143,8 @@ def perform_dump(file_to_dump: str) -> str:
     return result
 
 def get_full_file_as_bytes(file_to_get: str) -> bytes:
-    with open(file_to_get, "+rb") as f:
+    # Open as rb so file can't be modified by accident.
+    with open(file_to_get, "rb") as f:
         # Read the entire file into a byte array.
         file_bytes = f.read()
     return file_bytes
